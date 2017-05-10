@@ -1,8 +1,8 @@
 class apache {
 
 package { 'httpd': ensure => installed }
-
-service { 'httpd': ensure => running }
+service { 'httpd': ensure => running,
+require => Package['httpd'],}
 
 #file { "http.conf":
 #        path   => "/etc/httpd/conf/httpd.conf",
